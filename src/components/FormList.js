@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const FormList = ({ addSong }) => {
   const [title, setTitle] = useState('')
-  console.log(title)
 
   const handleChange = (e) => {
     e.preventDefault()
