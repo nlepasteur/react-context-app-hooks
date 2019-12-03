@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import FormList from './FormList'
 import uuid from 'uuid/v1'
 
 const SongList = () => {
@@ -8,13 +9,13 @@ const SongList = () => {
     { title: 'Felicita putana', id: 3 }
   ])
 
-  const addSong = () => {
-    setSongs([...songs, { title: 'Fatte spuglia', id: uuid() }])
+  const addSong = (title) => {
+    setSongs([...songs, { title, id: uuid() }])
   }
 
   return (
     <div className='song-list'>
-      <button onClick={addSong}>Add a song</button>
+      <FormList addSong={addSong} />
       <ul>
         {songs.map(song => (
           <li key={song.id}>{song.title}</li>
