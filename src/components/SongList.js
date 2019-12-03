@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import uuid from 'uuid/v1'
 
 const SongList = () => {
   const [songs, setSongs] = useState([
@@ -8,7 +9,7 @@ const SongList = () => {
   ])
 
   const addSong = () => {
-    setSongs([...songs, { title: 'Fatte spuglia', id: 4 }])
+    setSongs([...songs, { title: 'Fatte spuglia', id: uuid() }])
   }
 
   return (
@@ -16,7 +17,7 @@ const SongList = () => {
       <button onClick={addSong}>Add a song</button>
       <ul>
         {songs.map(song => (
-          <li>{song.title}</li>
+          <li key={song.id}>{song.title}</li>
         ))}
       </ul>
     </div>
